@@ -1,0 +1,49 @@
+# Hexo source files (if you decide to keep source here)
+# Uncomment these if you add Hexo source code to this repo
+# .DS_Store
+# Thumbs.db
+# db.json
+# *.log
+# node_modules/
+# public/
+# .deploy*/
+# _multiconfig.yml
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# Package manager
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build outputs (if needed)
+dist/
+build/
+out/
