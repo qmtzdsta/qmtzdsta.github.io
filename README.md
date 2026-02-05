@@ -49,34 +49,47 @@ This is a personal blog built with [Hexo](https://hexo.io/) static site generato
 - ✅ 社交分享 / Social sharing
 - ✅ 图片灯箱 / Image lightbox
 
-## 本地开发 / Local Development
+## 📝 如何添加文章 / How to Add Articles
 
-如果你有 Hexo 源代码，可以使用以下命令进行本地开发：
-
-If you have the Hexo source code, you can use the following commands for local development:
+### 快速开始 / Quick Start
 
 ```bash
-# 安装依赖 / Install dependencies
-npm install
-
-# 创建新文章 / Create new post
+# 1. 创建新文章 / Create new post
 hexo new "文章标题"
 
-# 启动本地服务器 / Start local server
+# 2. 编辑文章 / Edit the article
+# 打开 source/_posts/文章标题.md
+
+# 3. 本地预览 / Preview locally
 hexo server
 
-# 生成静态文件 / Generate static files
-hexo generate
-
-# 部署到 GitHub Pages / Deploy to GitHub Pages
-hexo deploy
+# 4. 生成并部署 / Generate and deploy
+hexo clean && hexo g -d
 ```
+
+### 详细指南 / Detailed Guides
+
+- 📖 **完整教程**: [HOW_TO_ADD_ARTICLES.md](./HOW_TO_ADD_ARTICLES.md) - 详细的文章添加指南
+- ⚡ **快速参考**: [QUICK_START.md](./QUICK_START.md) - 常用命令速查表
+- 🔄 **自动部署**: [.github/workflows/README.md](./.github/workflows/README.md) - GitHub Actions 自动部署
+
+### 重要说明 / Important Note
+
+⚠️ 本仓库只包含生成的静态文件。要添加文章，你需要：
+
+1. 在本地或单独的分支维护 Hexo 源代码
+2. 使用 `hexo new` 创建文章
+3. 使用 `hexo generate` 生成静态文件
+4. 将生成的文件推送到此仓库
+
+详细说明请查看 [HOW_TO_ADD_ARTICLES.md](./HOW_TO_ADD_ARTICLES.md)
 
 ## 文档 / Documentation
 
-详细的项目分析报告请查看：[PROJECT_ANALYSIS.md](./PROJECT_ANALYSIS.md)
-
-For detailed project analysis, please see: [PROJECT_ANALYSIS.md](./PROJECT_ANALYSIS.md)
+- 📚 **项目分析**: [PROJECT_ANALYSIS.md](./PROJECT_ANALYSIS.md) - 完整的项目技术分析
+- 📋 **项目总结**: [SUMMARY.md](./SUMMARY.md) - 快速了解项目状态
+- 📝 **添加文章**: [HOW_TO_ADD_ARTICLES.md](./HOW_TO_ADD_ARTICLES.md) - 详细的文章添加教程
+- ⚡ **快速入门**: [QUICK_START.md](./QUICK_START.md) - 快速参考和命令速查
 
 ## 关于 / About
 

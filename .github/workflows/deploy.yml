@@ -1,0 +1,62 @@
+name: Deploy Hexo to GitHub Pages
+
+# 工作流程说明：
+# 1. 当推送到 source 分支时触发
+# 2. 自动安装依赖、生成静态文件
+# 3. 部署到 main 分支（GitHub Pages）
+
+on:
+  push:
+    branches:
+      - source  # 监听 source 分支的推送
+
+  # 允许手动触发
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    # 1. 检出源代码
+    - name: Checkout source code
+      uses: actions/checkout@v4
+      with:
+        ref: source
+        fetch-depth: 0  # 获取完整历史，用于生成正确的更新时间
+    
+    # 2. 设置 Node.js 环境
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    # 3. 安装依赖
+    - name: Install dependencies
+      run: |
+        npm ci
+        npm install hexo-cli -g
+    
+    # 4. 清除缓存并生成静态文件
+    - name: Generate static files
+      run: |
+        hexo clean
+        hexo generate
+    
+    # 5. 部署到 GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        publish_branch: main  # 部署到 main 分支
+        cname: 568923.xyz     # 自定义域名
+        commit_message: ${{ github.event.head_commit.message }}
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+    
+    # 可选：部署成功通知（需要配置 Secrets）
+    # - name: Notification
+    #   if: success()
+    #   run: echo "部署成功！"
